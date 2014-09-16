@@ -22,8 +22,6 @@ def strxor(a, b):
 
 def encrypt(msg1, msg2):
     c = strxor(msg1, msg2)
-    # print
-    # print c.encode('hex')
     return c
 
 def main():
@@ -34,6 +32,9 @@ def main():
         else:
             result = encrypt(result, MSGS[i+1])
     print result.encode('hex')
+    print len(result)
+    for i, m in enumerate(MSGS):
+        print i, len(m)
 
 
 if __name__ == '__main__':
