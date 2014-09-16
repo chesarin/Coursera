@@ -22,14 +22,18 @@ def strxor(a, b):
 
 def encrypt(msg1, msg2):
     c = strxor(msg1, msg2)
-    print
-    print c.encode('hex')
+    # print
+    # print c.encode('hex')
     return c
 
 def main():
     print 'size of all the MSGS list', len(MSGS)
-    for i in MSGS:
-        print len(i)
+    for i in range(len(MSGS)-1):
+        if i is 0:
+            result = encrypt(MSGS[i], MSGS[i+1])
+        else:
+            result = encrypt(result, MSGS[i+1])
+    print result.encode('hex')
 
 
 if __name__ == '__main__':
